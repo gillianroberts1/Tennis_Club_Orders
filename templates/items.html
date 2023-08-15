@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <link 
+        rel="stylesheet" 
+        href="{{ url_for('static', filename='main.css') }}"/>
+
+    <title>{{ title }} - Sales</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="navLink"><a href="/items">Home</a></li>
+        </ul>
+    </nav>
+    <hr>
+    <h1>{{item.customer_name}}'s Racquet Order</h1>
+
+    <div class="item-container">
+
+        <div class="item">
+            <h3>{{ item.customer_name }}</h3>
+            <p>Delivery Date: {{ item.date.strftime("%b %d %y") }}</p>
+            <p> {{ item.model }}</p>
+            <p>Cost: £{{ item.cost }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p class="bold">Total Cost inc VAT: £{{ item.cost * item.quantity }}</p>
+            <img src="../static/{{item.image}}"/>
+        </div> 
+     </div>
+
+</body>
+</html>
